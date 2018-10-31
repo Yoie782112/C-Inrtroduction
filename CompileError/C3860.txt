@@ -1,0 +1,20 @@
+Error C3860:
+
+Cause: (size_t N) define already
+
+Sample:
+
+template <typename T, size_t M, size_t N>
+	template<size_t O, size_t N>
+	GsMatrix<T, M, O> GsMatrix<T, M, N>::operator*(const GsMatrix<T, N, O>& rhs)
+	{
+		GsMatrix<T, M, O> result;
+		for (unsigned i = 0; i< M; i++) {
+			for (unsigned j = 0; j< N; j++) {
+				for (unsigned k = 0; k< M; k++) {
+					result(i, j) += this->m_mat[i][k] * rhs(k, j);
+				}
+			}
+		}
+		return result;
+	}

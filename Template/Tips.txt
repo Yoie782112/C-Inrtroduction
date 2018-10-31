@@ -1,0 +1,9 @@
+﻿1.在main以外地方宣告template會讓compiler先compile整個template是否有錯
+
+sample:
+
+template gs::GsMatrix<double, 3, 3>;
+int main()
+{
+return 0;
+}
